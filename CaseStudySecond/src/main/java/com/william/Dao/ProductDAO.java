@@ -246,5 +246,68 @@ public class ProductDAO {
         }
         return productsList;
     }
+    public static Product getProductDetail(String productId) {
+        Connection conn = null;
+        Product product = new Product();
+        Product productDetail = new Product();
+
+        try {
+            String url = "jdbc:mysql://localhost/mikencobrand";
+            String USER_NAME = "root";
+            String PASSWORD = "tuananhdeptrai";
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(url, USER_NAME, PASSWORD);
+            String query = "select * from product where productId = ?";
+            Statement stmt = null;
+            try {
+                PreparedStatement pre = conn.prepareStatement(query);
+                pre.setString(1, productId);
+                ResultSet rs = pre.executeQuery();
+
+                while (rs.next()) {
+                    productDetail.setProductId(rs.getInt("productId"));
+                    productDetail.setCategoryId(rs.getInt("categoryId"));
+                    productDetail.setQuantity(rs.getInt("quantity"));
+                    productDetail.setPrice(rs.getInt("price"));
+                    productDetail.setDescription(rs.getString("description"));
+                    productDetail.setNameProduct(rs.getString("nameProduc"));
+                    productDetail.setImgMain(rs.getString("imgMain"));
+                    productDetail.setImg1(rs.getString("img1"));
+                    productDetail.setImg2(rs.getString("img2"));
+                    productDetail.setImg3(rs.getString("img3"));
+                    productDetail.setImg4(rs.getString("img4"));
+                    productDetail.setSize_S(rs.getInt("Size_S"));
+                    productDetail.setSize_M(rs.getInt("Size_M"));
+                    productDetail.setSize_L(rs.getInt("Size_L"));
+                    productDetail.setSize_XL(rs.getInt("Size_XL"));
+                    productDetail.setSize_XXL(rs.getInt("Size_XXL"));
+                }
+
+
+//                while (rs.next()) {
+//                    String name = rs.getString("username");
+//                    System.out.println(name);
+//                }
+            } catch (SQLException e) {
+                throw new Error("Problem", e);
+            } finally {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new Error("Problem", e);
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        return productDetail;
+    }
+
 }
 

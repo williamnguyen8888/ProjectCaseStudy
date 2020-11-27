@@ -501,7 +501,7 @@
                                                         <li><a href="photo-gallery-alt.html">SHIRTS</a></li>
                                                         <!--                                                        <li><a href="portfolio-item.html">PORTFOLIO ITEM</a></li>-->
                                                         <!--                                                        <li><a href="testimonials.html">TESTIMONIALS</a></li>-->
-                                                        <!--                                                        <li><a href="agency-product.html">AGENCY - PRODUCT</a></li>-->
+                                                        <!--                                                        <li><a href="agency-product.jsp">AGENCY - PRODUCT</a></li>-->
                                                     </ul>
                                                 </li>
                                                 <li class="menu-item-has-children col-sm-3">
@@ -696,7 +696,7 @@
                                     <!--/ Badge container -->
 
                                     <!-- Product container link -->
-                                    <a id="${product.getProductId()}" href="product.html">
+                                    <a id="${product.getProductId()}" href="/product?productId=${product.getProductId()}">
                                         <!-- Image wrapper -->
                                         <span class="image kw-prodimage">
 											<!-- Primary image -->
@@ -748,7 +748,7 @@
                                                       d="M26,8.91A1,1,0,0,0,25,8H20V6A6,6,0,1,0,8,6V8H3A1,1,0,0,0,2,8.91l-2,22A1,1,0,0,0,1,32H27a1,1,0,0,0,1-1.089ZM10,6a4,4,0,0,1,8,0V8H10V6ZM2.1,30L3.913,10H8v2.277a2,2,0,1,0,2,0V10h8v2.277a2,2,0,1,0,2,0V10h4.087L25.9,30H2.1Z"></path>
                                             </svg>
                                         </a>
-                                        <a href="product.html">
+                                        <a href="product.jsp">
                                             <span class="more-icon fas fa-compress"></span>
                                         </a>
                                     </div>
@@ -914,7 +914,7 @@
 
                             <ul class="product_list_widget">
                                 <li>
-                                    <a href="product.html" title="Kallyas Fashion">
+                                    <a href="product.jsp" title="Kallyas Fashion">
                                         <!-- Image -->
                                         <img src="images/_shop/small1.jpg" class="" alt="Kallyas Fashion"
                                              title="Kallyas Fashion"/>
@@ -937,7 +937,7 @@
 										</span>
                                 </li>
                                 <li>
-                                    <a href="product.html" title="Kallyas Fashion">
+                                    <a href="product.jsp" title="Kallyas Fashion">
                                         <!-- Image -->
                                         <img src="images/_shop/small2.jpg" class="" alt="Kallyas Fashion"
                                              title="Kallyas Fashion"/>
@@ -961,7 +961,7 @@
 										</span>
                                 </li>
                                 <li>
-                                    <a href="product.html" title="Kallyas Fashion">
+                                    <a href="product.jsp" title="Kallyas Fashion">
                                         <!-- Image -->
                                         <img src="images/_shop/small3.jpg" class="" alt="Kallyas Fashion"
                                              title="Kallyas Fashion"/>
@@ -1231,9 +1231,9 @@
             SIGN IN YOUR ACCOUNT TO HAVE ACCESS TO DIFFERENT FEATURES
         </h3>
 
-        <form class="login_panel" name="login_panel" method="post" action="#">
+        <form class="login_panel" name="login_panel" method="post" action="/trangchu">
             <div class=" kl-fancy-form">
-                <input type="text" id="kl-username" name="log"
+                <input type="text" id="kl-username" name="username"
                        class="form-control inputbox kl-fancy-form-input kl-fw-input" placeholder="eg: james_smith">
                 <label class="kl-font-alt kl-fancy-form-label">
                     USERNAME
@@ -1241,7 +1241,7 @@
             </div>
 
             <div class=" kl-fancy-form">
-                <input type="password" id="kl-password" name="pwd"
+                <input type="password" id="kl-password" name="password"
                        class="form-control inputbox kl-fancy-form-input kl-fw-input" placeholder="type password">
                 <label class="kl-font-alt kl-fancy-form-label">
                     PASSWORD
@@ -1281,16 +1281,16 @@
             CREATE ACCOUNT
         </h3>
 
-        <form class="register_panel" name="register_panel" method="post" action="#">
+        <form class="register_panel" name="register_panel" method="post" action="/home">
             <div class=" kl-fancy-form ">
-                <input type="text" id="reg-username" name="user_login"
+                <input type="text" id="reg-username" name="username"
                        class="form-control inputbox kl-fancy-form-input kl-fw-input"
                        placeholder="type desired username">
                 <label class="kl-font-alt kl-fancy-form-label">USERNAME</label>
             </div>
 
             <div class="kl-fancy-form">
-                <input type="text" id="reg-email" name="user_email"
+                <input type="text" id="reg-email" name="useremail"
                        class="form-control inputbox kl-fancy-form-input kl-fw-input"
                        placeholder="your-email@website.com">
                 <label class="kl-font-alt kl-fancy-form-label">
@@ -1299,7 +1299,7 @@
             </div
             >
             <div class=" kl-fancy-form">
-                <input type="password" id="reg-pass" name="user_password"
+                <input type="password" id="reg-pass" name="userpassword"
                        class="form-control inputbox kl-fancy-form-input kl-fw-input" placeholder="*****">
                 <label class="kl-font-alt kl-fancy-form-label">
                     PASSWORD
@@ -1307,7 +1307,7 @@
             </div>
 
             <div class="kl-fancy-form">
-                <input type="password" id="reg-pass2" name="user_password2"
+                <input type="password" id="reg-pass2" name="userpassword2"
                        class="form-control inputbox kl-fancy-form-input kl-fw-input" placeholder="*****">
                 <label class="kl-font-alt kl-fancy-form-label">
                     CONFIRM PASSWORD

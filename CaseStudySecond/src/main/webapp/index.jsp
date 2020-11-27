@@ -517,7 +517,7 @@
                                                         <li><a href="photo-gallery-alt.html">SHIRTS</a></li>
                                                         <!--                                                        <li><a href="portfolio-item.html">PORTFOLIO ITEM</a></li>-->
                                                         <!--                                                        <li><a href="testimonials.html">TESTIMONIALS</a></li>-->
-                                                        <!--                                                        <li><a href="agency-product.html">AGENCY - PRODUCT</a></li>-->
+                                                        <!--                                                        <li><a href="agency-product.jsp">AGENCY - PRODUCT</a></li>-->
                                                     </ul>
                                                 </li>
                                                 <li class="menu-item-has-children col-sm-3">
@@ -2206,7 +2206,7 @@
                                                     <!--/ Badge container -->
 
                                                     <!-- Product container link -->
-                                                    <a href="product.html">
+                                                    <a href="product.jsp">
                                                         <!-- Image wrapper -->
                                                         <span class="image kw-prodimage">
 																<!-- Primary image -->
@@ -2260,7 +2260,7 @@
                                                                       d="M26,8.91A1,1,0,0,0,25,8H20V6A6,6,0,1,0,8,6V8H3A1,1,0,0,0,2,8.91l-2,22A1,1,0,0,0,1,32H27a1,1,0,0,0,1-1.089ZM10,6a4,4,0,0,1,8,0V8H10V6ZM2.1,30L3.913,10H8v2.277a2,2,0,1,0,2,0V10h8v2.277a2,2,0,1,0,2,0V10h4.087L25.9,30H2.1Z"></path>
                                                             </svg>
                                                         </a>
-                                                        <a href="product.html">
+                                                        <a href="product.jsp">
                                                             <span class="more-icon fas fa-compress"></span>
                                                         </a>
                                                     </div>
@@ -2280,7 +2280,7 @@
                                                     <!--/ Badge container -->
 
                                                     <!-- Product container link -->
-                                                    <a href="product.html">
+                                                    <a href="product.jsp">
                                                         <!-- Image wrapper -->
                                                         <span class="image kw-prodimage">
 																<!-- Primary image -->
@@ -2334,7 +2334,7 @@
                                                                       d="M26,8.91A1,1,0,0,0,25,8H20V6A6,6,0,1,0,8,6V8H3A1,1,0,0,0,2,8.91l-2,22A1,1,0,0,0,1,32H27a1,1,0,0,0,1-1.089ZM10,6a4,4,0,0,1,8,0V8H10V6ZM2.1,30L3.913,10H8v2.277a2,2,0,1,0,2,0V10h8v2.277a2,2,0,1,0,2,0V10h4.087L25.9,30H2.1Z"></path>
                                                             </svg>
                                                         </a>
-                                                        <a href="product.html">
+                                                        <a href="product.jsp">
                                                             <span class="more-icon fas fa-compress"></span>
                                                         </a>
                                                     </div>
@@ -2356,7 +2356,7 @@
                                                     <!--/ Badge container -->
 
                                                     <!-- Product container link -->
-                                                    <a href="product.html">
+                                                    <a href="product.jsp">
                                                         <!-- Image wrapper -->
                                                         <span class="image kw-prodimage">
 																<!-- Primary image -->
@@ -2407,7 +2407,7 @@
                                                                       d="M26,8.91A1,1,0,0,0,25,8H20V6A6,6,0,1,0,8,6V8H3A1,1,0,0,0,2,8.91l-2,22A1,1,0,0,0,1,32H27a1,1,0,0,0,1-1.089ZM10,6a4,4,0,0,1,8,0V8H10V6ZM2.1,30L3.913,10H8v2.277a2,2,0,1,0,2,0V10h8v2.277a2,2,0,1,0,2,0V10h4.087L25.9,30H2.1Z"></path>
                                                             </svg>
                                                         </a>
-                                                        <a href="product.html">
+                                                        <a href="product.jsp">
                                                             <span class="more-icon fas fa-compress"></span>
                                                         </a>
                                                     </div>
@@ -2427,7 +2427,7 @@
                                                     <!--/ Badge container -->
 
                                                     <!-- Product container link -->
-                                                    <a href="product.html">
+                                                    <a href="product.jsp">
                                                         <!-- Image wrapper -->
                                                         <span class="image kw-prodimage">
 																<!-- Primary image -->
@@ -2478,7 +2478,7 @@
                                                                       d="M26,8.91A1,1,0,0,0,25,8H20V6A6,6,0,1,0,8,6V8H3A1,1,0,0,0,2,8.91l-2,22A1,1,0,0,0,1,32H27a1,1,0,0,0,1-1.089ZM10,6a4,4,0,0,1,8,0V8H10V6ZM2.1,30L3.913,10H8v2.277a2,2,0,1,0,2,0V10h8v2.277a2,2,0,1,0,2,0V10h4.087L25.9,30H2.1Z"></path>
                                                             </svg>
                                                         </a>
-                                                        <a href="product.html">
+                                                        <a href="product.jsp">
                                                             <span class="more-icon fas fa-compress"></span>
                                                         </a>
                                                     </div>
@@ -2498,7 +2498,7 @@
                                                     <!--/ Badge container -->
 
                                                     <!-- Product container link -->
-                                                    <a href="product.html">
+                                                    <a href="product.jsp">
                                                         <!-- Image wrapper -->
                                                         <span class="image kw-prodimage">
 																<!-- Primary image -->
@@ -2549,7 +2549,7 @@
                                                                       d="M26,8.91A1,1,0,0,0,25,8H20V6A6,6,0,1,0,8,6V8H3A1,1,0,0,0,2,8.91l-2,22A1,1,0,0,0,1,32H27a1,1,0,0,0,1-1.089ZM10,6a4,4,0,0,1,8,0V8H10V6ZM2.1,30L3.913,10H8v2.277a2,2,0,1,0,2,0V10h8v2.277a2,2,0,1,0,2,0V10h4.087L25.9,30H2.1Z"></path>
                                                             </svg>
                                                         </a>
-                                                        <a href="product.html">
+                                                        <a href="product.jsp">
                                                             <span class="more-icon fas fa-compress"></span>
                                                         </a>
                                                     </div>
