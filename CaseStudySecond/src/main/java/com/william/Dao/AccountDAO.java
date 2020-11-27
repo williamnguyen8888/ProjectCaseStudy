@@ -74,6 +74,7 @@ public class AccountDAO {
                     customer.setSurname(rs.getString("surName"));
                     customer.setPassword(rs.getString("password"));
                     customer.setPhoneNumber(rs.getString("phoneNumber"));
+                    customer.setTypeAccountId(rs.getInt("TypeAccountId"));
                 }
 
 

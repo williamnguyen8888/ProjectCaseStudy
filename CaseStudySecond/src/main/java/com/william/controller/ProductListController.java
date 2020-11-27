@@ -17,9 +17,21 @@ import java.util.ArrayList;
 public class ProductListController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        ArrayList<Product> products = ProductDAO.getProductInDb();
-        request.setAttribute("products",products );
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/product-category.jsp");
-        requestDispatcher.forward(request,response);
+
+        ArrayList<CategoryModel> categoryList = ProductDAO.loadCategory();
+        request.setAttribute("categoryListProduct", categoryList);
+        String categoryId = request.getParameter("category");
+        if (categoryId == null){
+            ArrayList<Product> products = ProductDAO.getProductInDb();
+            request.setAttribute("products",products );
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/product-category.jsp");
+            requestDispatcher.forward(request,response);
+        }else {
+            ArrayList<Product> products = ProductDAO.getProductByCate(categoryId);
+            request.setAttribute("products",products );
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/product-category.jsp");
+            requestDispatcher.forward(request,response);
+        }
+
     }
 }

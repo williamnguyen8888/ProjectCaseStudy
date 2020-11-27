@@ -15,6 +15,7 @@
 			transform: scale(4.5);
 		}
 	</style>
+    <script type="text/javascript" src="admin/files/bower_components/jquery/js/jquery.min.js"></script>
 
     <!--[if lt IE 10]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -59,6 +60,12 @@
 
     <link rel="stylesheet" type="text/css" href="admin/files/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="admin/files/assets/css/pages.css">
+    <style>
+
+        .modal-body{
+            overflow-scrolling: auto;
+        }
+    </style>
 </head>
 <body>
 
@@ -74,7 +81,7 @@
             <div class="navbar-wrapper">
                 <div class="navbar-logo">
                     <a href="index.html">
-                        <img class="img-fluid" src="admin/files/assets/images/logo.png" alt="Theme-Logo"/>
+                        <img class="img-fluid" src="http://mikenco.vn/wp-content/uploads/2020/10/logo-white.png" style="max-width: 120px" alt="Theme-Logo"/>
                     </a>
                     <a class="mobile-menu" id="mobile-collapse" href="#!">
                         <i class="feather icon-menu icon-toggle-right"></i>
@@ -1370,9 +1377,320 @@
 																	<td>${productReultAdmin.getQuantity()}</td>
 																	<td>${productReultAdmin.getPrice()}</td>
 																	<td><img class="imgPreview" src="${productReultAdmin.getImgMain()}" alt="" style="max-width: 50px"></td>
-																	<td><button type="button" class="btn btn-primary" id="${productReultAdmin.getProductId()}">Edit</button></td>
+																	<td><button type="button" class="btn btn-primary" id="${productReultAdmin.getProductId()}" data-toggle="modal" data-target="#editModal${productReultAdmin.getProductId()}">Edit</button></td>
 																	<td><button type="button" class="btn btn-danger" id="${productReultAdmin.getProductId()}" onclick="getID($(this).attr('id'))">Delete</button></td>
 																</tr>
+                                                                <!-- Modal -->
+                                                                <div id="editModal${productReultAdmin.getProductId()}" class="modal fade" role="dialog">
+                                                                    <div class="modal-dialog modal-lg">
+
+                                                                        <!-- Modal content-->
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                                <h4 class="modal-title"></h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="col-md-12">
+                                                                                    <div id="wizardb">
+                                                                                        <section>
+                                                                                            <form class="wizard-form" id="formAddProduct${productReultAdmin.getProductId()}"
+                                                                                                <%--                                                                          verticle-wizard--%>
+                                                                                                  action="/editProduct" method="post">
+                                                                                                <h3> Product Info </h3>
+                                                                                                <fieldset>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="password-2"
+                                                                                                                   class="block">Id *</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <input id="color-2b5${productReultAdmin.getProductId()}" value="${productReultAdmin.getProductId()}" name="ProductId"
+                                                                                                                   type="text"
+                                                                                                                   class="form-control " readonly>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="userName-2"
+                                                                                                                   class="block">Name Product
+                                                                                                                *</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <input id="userName-2b${productReultAdmin.getProductId()}"
+                                                                                                                   name="nameProduct" type="text"
+                                                                                                                   class=" form-control" value="${productReultAdmin.getNameProduct()}">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="email-2" class="block">Category
+                                                                                                                *</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <select class="form-control required" name="categoryId">
+                                                                                                                <c:forEach items='${requestScope["categoryListEdit"]}'
+                                                                                                                           var="categoryEdit">
+
+                                                                                                                    <option value="${categoryEdit.getCategoryID()}">${categoryEdit.getNameCategory()}</option>
+
+                                                                                                                </c:forEach>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="password-2"
+                                                                                                                   class="block">Color *</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <input id="color-2b${productReultAdmin.getProductId()}" name="colorProduct"
+                                                                                                                   type="text"
+                                                                                                                   class="form-control " >
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="confirm-2"
+                                                                                                                   class="block">Price*</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <input id="confirm-2b1${productReultAdmin.getProductId()}"
+                                                                                                                   name="priceProduct" type="text"
+                                                                                                                   class="form-control " value="${productReultAdmin.getPrice()}">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="confirm-2"
+                                                                                                                   class="block">Description*</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <input value="${productReultAdmin.getDescription()}"
+                                                                                                                   name="descriptionProduct" type="text"
+                                                                                                                   class="form-control " >
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </fieldset>
+                                                                                                <h3> Image Product </h3>
+                                                                                                <fieldset>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="name-2" class="block">IMG
+                                                                                                                Main *</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+                                                                                                            <input id="imgInp${productReultAdmin.getProductId()}" name="imgProduct"
+                                                                                                                   type="text"
+                                                                                                                   class="form-control" value="${productReultAdmin.getImgMain()}">
+
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+
+                                                                                                            <img id="blah${productReultAdmin.getProductId()}" src="#"
+                                                                                                                 style="max-width: 350px"/>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <script type="text/javascript">
+                                                                                                        jQuery(document).ready(function ($) {
+
+                                                                                                            $('#imgInp${productReultAdmin.getProductId()}').bind('input', function () {
+                                                                                                                $('#blah${productReultAdmin.getProductId()}').attr('src', $(this).val()); //concatinate path if required
+                                                                                                            });
+
+                                                                                                        });
+                                                                                                    </script>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="name-2" class="block">IMG
+                                                                                                                Child 1 *</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+                                                                                                            <input id="imgInp1${productReultAdmin.getProductId()}" name="imgProduct1"
+                                                                                                                   type="text"
+                                                                                                                   class="form-control" value="${productReultAdmin.getImg1()}">
+
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+
+                                                                                                            <img id="blah1" src="#"
+                                                                                                                 style="max-width: 350px"/>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <script type="text/javascript">
+                                                                                                        jQuery(document).ready(function ($) {
+
+                                                                                                            $('#imgInp1${productReultAdmin.getProductId()}').bind('input', function () {
+                                                                                                                $('#blah1${productReultAdmin.getProductId()}').attr('src', $(this).val()); //concatinate path if required
+                                                                                                            });
+
+                                                                                                        });
+                                                                                                    </script>
+
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="name-2" class="block">IMG
+                                                                                                                Child 2 *</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+                                                                                                            <input id="imgInp2${productReultAdmin.getProductId()}" name="imgProduct2"
+                                                                                                                   type="text"
+                                                                                                                   class="form-control" value="${productReultAdmin.getImg2()}">
+
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+
+                                                                                                            <img id="blah2${productReultAdmin.getProductId()}" src="#"
+                                                                                                                 style="max-width: 350px"/>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <script type="text/javascript">
+                                                                                                        jQuery(document).ready(function ($) {
+
+                                                                                                            $('#imgInp2${productReultAdmin.getProductId()}').bind('input', function () {
+                                                                                                                $('#blah2${productReultAdmin.getProductId()}').attr('src', $(this).val()); //concatinate path if required
+                                                                                                            });
+
+                                                                                                        });
+                                                                                                    </script>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="name-2" class="block">IMG
+                                                                                                                Child 3 *</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+                                                                                                            <input id="imgInp3${productReultAdmin.getProductId()}" name="imgProduct3"
+                                                                                                                   type="text"
+                                                                                                                   class="form-control" value="${productReultAdmin.getImg3()}">
+
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+
+                                                                                                            <img id="blah3${productReultAdmin.getProductId()}" src="#"
+                                                                                                                 style="max-width: 350px"/>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <script type="text/javascript">
+                                                                                                        $(document).ready(function ($) {
+
+                                                                                                            $('#imgInp3${productReultAdmin.getProductId()}').bind('input', function () {
+                                                                                                                $('#blah3${productReultAdmin.getProductId()}').attr('src', $(this).val()); //concatinate path if required
+                                                                                                            });
+
+                                                                                                        });
+                                                                                                    </script>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="name-2" class="block">IMG
+                                                                                                                Child 4 *</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+                                                                                                            <input id="imgName${productReultAdmin.getProductId()}" name="imgProduct4"
+                                                                                                                   type="text"
+                                                                                                                   class="form-control" value="${productReultAdmin.getImg4()}">
+
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+
+                                                                                                            <img id="imageHolder${productReultAdmin.getProductId()}" src="#"
+                                                                                                                 style="max-width: 350px"/>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <script type="text/javascript">
+                                                                                                        jQuery(document).ready(function ($) {
+
+                                                                                                            $('#imgName${productReultAdmin.getProductId()}').bind('input', function () {
+                                                                                                                $('#imageHolder${productReultAdmin.getProductId()}').attr('src', $(this).val()); //concatinate path if required
+                                                                                                            });
+
+                                                                                                        });
+                                                                                                    </script>
+                                                                                                </fieldset>
+                                                                                                <h3> Work experience </h3>
+                                                                                                <fieldset>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="Company-2"
+                                                                                                                   class="block">Quantity:</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <input id="Company-2b${productReultAdmin.getProductId()}"
+                                                                                                                   name="quantityProduct" type="number"
+                                                                                                                   class="form-control required" value="${productReultAdmin.getQuantity()}">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="CountryW-2"
+                                                                                                                   class="block">Size S</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <input id="CountryW-2b${productReultAdmin.getProductId()}"
+                                                                                                                   name="sizeSProduct" type="number"
+                                                                                                                   class="form-control required" value="${productReultAdmin.getSize_S()}">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="Position-2"
+                                                                                                                   class="block">Size M</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <input id="Position-2b1${productReultAdmin.getProductId()}"
+                                                                                                                   name="sizeMProduct" type="number"
+                                                                                                                   class="form-control required" value="${productReultAdmin.getSize_M()}">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="Position-2"
+                                                                                                                   class="block">Size L</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <input id="Position-2b2${productReultAdmin.getProductId()}"
+                                                                                                                   name="sizeLProduct" type="number"
+                                                                                                                   class="form-control required" value="${productReultAdmin.getSize_L()}">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="Position-2"
+                                                                                                                   class="block">Size XL</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <input id="Position-2b3${productReultAdmin.getProductId()}"
+                                                                                                                   name="sizeXLProduct" type="number"
+                                                                                                                   class="form-control required" value="${productReultAdmin.getSize_XL()}">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <label for="Position-2"
+                                                                                                                   class="block">Size
+                                                                                                                XXL</label>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <input id="Position-2b${productReultAdmin.getProductId()}"
+                                                                                                                   name="sizeXXLProduct" type="number"
+                                                                                                                   class="form-control required" value="${productReultAdmin.getSize_XXL()}">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <input type="submit" id="submitForm${productReultAdmin.getProductId()}" class="btn btn-success" value="Update">
+                                                                                                </fieldset>
+                                                                                            </form>
+
+                                                                                        </section>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+<%--                                                                            <div class="modal-footer">--%>
+<%--                                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
+<%--                                                                            </div>--%>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
                                                             </c:forEach>
 
                                                             <script>

@@ -23,8 +23,11 @@ public class LoginController extends HttpServlet {
             String password = request.getParameter("password");
             boolean isValue = AccountDAO.checkLogin(username,password);
             if (isValue){
+                Customer customer = AccountDAO.getInfo(username,password);
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
+                String TypeOfAccountId = String.valueOf(customer.getTypeAccountId()) ;
+                session.setAttribute("TypeOfAccountId", TypeOfAccountId);
                 String userName=(String)session.getAttribute("username");
                 String nameResult ;
                 if(userName!=null)
@@ -34,7 +37,6 @@ public class LoginController extends HttpServlet {
                     nameResult = "LOGIN";
                 }
                 request.setAttribute("nameResult",nameResult);
-                Customer customer = AccountDAO.getInfo(username,password);
                 request.setAttribute("infoCustomer",customer);
                 RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/index.jsp");
                 requestDispatcher.forward(request,response);

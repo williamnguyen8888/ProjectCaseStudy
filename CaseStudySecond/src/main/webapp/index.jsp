@@ -534,7 +534,7 @@
                                                     <!--                                                    <a href="#"-->
                                                     <!--                                                                                               class="zn_mega_title">System</a>-->
                                                     <ul class="clearfix">
-                                                        <li><a href="404.html">SHOES</a></li>
+                                                        <li><a href="eror.jsp">SHOES</a></li>
                                                         <li><a href="coming-soon.html"
                                                                name="ACCESSORIES">ACCESSORIES</a></li>
                                                         <li><a href="page-without-sidebar.html">PAGE WITHOUT SIDEBAR</a>
